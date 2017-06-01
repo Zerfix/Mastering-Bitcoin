@@ -1,3 +1,4 @@
+# python 2.x
 import hashlib
 import time
 
@@ -14,8 +15,8 @@ def proof_of_work(header, difficulty_bits):
             print "Hash is %s" % hash_result
             return nonce
 
-    print "Failed after %d (max_nonce) tries" % nonce
-    return nonce
+        print "Failed after %d (max_nonce) tries" % nonce
+        return nonce
 
 if __name__ == "__main__":
     nonce = 0
