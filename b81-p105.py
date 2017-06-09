@@ -1,9 +1,11 @@
 # python 2.x
+# key to address ecc example
+
+
+
 import pybitcointools
 
 valid_private_key = False
-private_key = ''
-decoded_private_key = ''
 
 while not valid_private_key:
     private_key = pybitcointools.random_key()
@@ -26,7 +28,7 @@ wif_compressed_compressed_private_key = pybitcointools.encode_privkey(
 print "Private Key (WIF-Compressed) is:         ", wif_compressed_compressed_private_key
 print ""
 
-# < fast_multiply() > replace < base10_multiply() >
+# < fast_multiply() >   replace   < base10_multiply() >
 public_key = pybitcointools.fast_multiply(pybitcointools.G, decoded_private_key)
 print "Public Key (x,y) coordiates is:", public_key
 

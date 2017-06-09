@@ -1,4 +1,6 @@
 # python 2.x
+# proof-of-work-example.py
+
 import hashlib
 import time
 
