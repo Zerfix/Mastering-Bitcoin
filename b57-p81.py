@@ -1,4 +1,5 @@
-# python 2.x
+#!/bin/env python2.7
+
 # pycoin_example.py
 
 from pycoin.key import Key

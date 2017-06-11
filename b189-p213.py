@@ -1,4 +1,5 @@
-# python 2.x
+#!/bin/env python2.7
+
 # hash_example.py
 
 import hashlib

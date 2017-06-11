@@ -1,10 +1,12 @@
-# python 2.x
+#!/bin/env python2.7
+
 # proof-of-work-example.py
 
 import hashlib
 import time
 
-max_nonce = 2 ** 32
+max_nonce = (2 ** 31) - 1
+
 
 def proof_of_work(header, difficulty_bits):
     target = 2 ** (256-difficulty_bits)
@@ -17,12 +19,13 @@ def proof_of_work(header, difficulty_bits):
             print "Hash is %s" % hash_result
             return nonce
 
-        print "Failed after %d (max_nonce) tries" % nonce
-        return nonce
+    print "Failed after %d (max_nonce) tries" % nonce
+    return nonce
+
 
 if __name__ == "__main__":
-    nonce = 0
-    hash_result = ''
+    nonce       = 0
+    hash_result = ""
 
     for difficulty_bits in xrange(32):
         difficulty = 2 ** difficulty_bits
@@ -34,7 +37,8 @@ if __name__ == "__main__":
 
         new_block = "test block with transactions" + hash_result
 
-        (hash_result, nonce) = proof_of_work(new_block, difficulty_bits)
+        nonce = proof_of_work(new_block, difficulty_bits)
+        hash_result = str(nonce)
 
         end_time = time.time()
 
@@ -44,3 +48,5 @@ if __name__ == "__main__":
         if elapsed_time > 0:
             hash_power = float(long(nonce)/elapsed_time)
             print "Hashing Power: %ld hashes per second" % hash_power
+
+        print ""

@@ -1,4 +1,5 @@
-# python 2.x
+#!/bin/env python2.7
+
 # key to address ecc example
 
 
@@ -25,12 +26,14 @@ print "Private Key compressed (hex) is:         ", compressed_private_key
 wif_compressed_compressed_private_key = pybitcointools.encode_privkey(
     pybitcointools.decode_privkey(compressed_private_key, 'hex'), 'hex'
 )
+
 print "Private Key (WIF-Compressed) is:         ", wif_compressed_compressed_private_key
 print ""
 
 # < fast_multiply() >   replace   < base10_multiply() >
 public_key = pybitcointools.fast_multiply(pybitcointools.G, decoded_private_key)
-print "Public Key (x,y) coordiates is:", public_key
+print "Public Key (x,y) coordiates is:\n", public_key
+print ""
 
 hex_encoded_public_key = pybitcointools.encode_pubkey(public_key, 'hex')
 print "Public Key (hex) is:                     ", hex_encoded_public_key
